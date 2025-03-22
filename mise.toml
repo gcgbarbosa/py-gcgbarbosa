@@ -9,3 +9,6 @@ enter = "echo 'Welcome to the template project'"
 
 [tasks.app]
 run = 'uv run python app.py'
+
+[tasks.docs]
+run = 'cd docs; uv run mkdocs serve'
