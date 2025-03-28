@@ -11,6 +11,8 @@ dev = ["pre-commit>=4.2.0", "pyright>=1.1.398", "pytest>=8.3.5", "ruff>=0.11.2"]
 docs = ["mkdocs>=1.6.1"]
 
 [tool.pyright]
+include = ["src"]
+venvPath = "."
 venv = ".venv"
 
 [tool.ruff]
