@@ -17,8 +17,13 @@ run = 'cd docs; uv run mkdocs serve'
 [tasks.test]
 run = 'uv run pytest'
 
+[tasks.cov]
+run = [
+  'uv run pytest --cov=template --cov-report=xml',
+  'uv run coverage-badge -o docs/coverage.svg -f',
+]
 
-[tasks.coverage]
+[tasks.cov-html]
 run = 'uv run pytest --cov=template --cov-report=html'
 
 [tasks.pyright]
