@@ -21,7 +21,7 @@ run = 'uv run pytest'
 run = [
   'uv run pytest --cov=template --cov-report=xml',
   'uv run coverage-badge -o docs/coverage.svg -f',
-  'uv run interrogate',
+  'uv run interrogate --generate-badge docs/interrogate.svg',
 ]
 
 [tasks.cov-html]

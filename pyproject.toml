@@ -7,10 +7,6 @@ requires-python = ">=3.12"
 dependencies = ["loguru>=0.7.3"]
 
 [dependency-groups]
-# docformatter for formatting docstrings
-# interrogate for docstrings coverage
-# bandit for insecure code patterns
-# safety to check for known vulnerabilities in dependencies
 dev = [
   "pre-commit>=4.2.0",
   "pyright>=1.1.398",
@@ -19,7 +15,7 @@ dev = [
   "ruff>=0.11.2",
   "mkdocs>=1.6.1",
   "coverage-badge>=1.1.2",
-  "interrogate>=1.7.0",
+  "interrogate[png]>=1.7.0",
   "docformatter>=1.7.5",
   "bandit>=1.8.3",
   "safety>=3.3.1",
