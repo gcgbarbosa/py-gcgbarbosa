@@ -1,12 +1,10 @@
 [project]
 name = "template"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.0.1"
+description = "Starting point for Python projects"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-    "loguru>=0.7.3",
-]
+dependencies = ["loguru>=0.7.3"]
 
 [dependency-groups]
 dev = ["pre-commit>=4.2.0", "pyright>=1.1.398", "pytest>=8.3.5", "ruff>=0.11.2"]
