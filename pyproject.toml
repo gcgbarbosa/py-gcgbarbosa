@@ -18,9 +18,7 @@ dev = [
   "interrogate[png]>=1.7.0",
   "docformatter>=1.7.5",
   "bandit>=1.8.3",
-  "safety>=3.3.1",
 ]
-
 
 [tool.pyright]
 include = ["src"]
@@ -29,27 +27,20 @@ venv = ".venv"
 
 [tool.ruff]
 exclude = [".venv", "docs"]
-# Same as Black.
 line-length = 128
 indent-width = 4
-# Assume Python 3.9
 target-version = "py312"
 
 [tool.ruff.format]
-# Like Black, use double quotes for strings.
 quote-style = "double"
-# Like Black, indent with spaces, rather than tabs.
 indent-style = "space"
-# Like Black, respect magic trailing commas.
 skip-magic-trailing-comma = false
-# Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"
-
 
 [tool.black]
 line-length = 120
 target-version = ["py312"]
-skip-string-normalization = false # Use double quotes (default is false, i.e., prefer double)
+skip-string-normalization = false
 skip-magic-trailing-comma = false
 
 [tool.pytest.ini_options]
@@ -62,7 +53,6 @@ where = ["template"]
 
 [tool.setuptools.package-data]
 "template" = ["py.typed"]
-
 
 [tool.interrogate]
 ignore-init-method = true
