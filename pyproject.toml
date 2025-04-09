@@ -39,3 +39,8 @@ line-length = 120
 target-version = ["py312"]
 skip-string-normalization = false # Use double quotes (default is false, i.e., prefer double)
 skip-magic-trailing-comma = false
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
