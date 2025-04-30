@@ -52,5 +52,5 @@ repos:
     rev: "1.7.5"
     hooks:
       - id: bandit
-        args: ["-r", "pygentic_vnt"]
+        args: ["-r", "template"]
         exclude: .*/?tests/.+
