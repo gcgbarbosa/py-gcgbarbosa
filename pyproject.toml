@@ -13,7 +13,6 @@ dev = [
   "pytest-cov>=6.1.1",
   "pytest>=8.3.5",
   "ruff>=0.11.2",
-  "mkdocs>=1.6.1",
   "coverage-badge>=1.1.2",
   "interrogate[png]>=1.7.0",
   "docformatter>=1.7.5",
@@ -49,22 +48,22 @@ addopts = "-ra -q"
 testpaths = ["tests"]
 
 [tool.setuptools.packages.find]
-where = ["template"]
+where = ["src"]
 
 [tool.setuptools.package-data]
-"template" = ["py.typed"]
+"src" = ["py.typed"]
 
 [tool.interrogate]
 ignore-init-method = true
-ignore-init-module = false
+ignore-init-module = true
 ignore-magic = false
 ignore-semiprivate = false
 ignore-private = false
 ignore-module = false
 ignore-property-decorators = false
 fail-under = 95
-exclude = ["tests/", "setup.py", "docs"]
-verbose = 0
+exclude = ["tests/", "setup.py", "docs", 'old']
+verbose = 1
 omit-covered-files = false
 quiet = false
 whitelist-regex = []
