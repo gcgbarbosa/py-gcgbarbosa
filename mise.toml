@@ -8,13 +8,20 @@ PYTHONPATH = "."
 [hooks]
 enter = "echo 'Welcome to the template project'"
 
+[tasks.setup]
+description = "Initial repository setup (virtualenv, dependencies, hooks)"
+run = ["uv sync", "uv run pre-commit install"]
+
 [tasks.app]
+description = "Run the application"
 run = 'uv run python src/app.py'
 
 [tasks.test]
+description = "Run the tests"
 run = 'uv run pytest'
 
 [tasks.cov]
+description = "Run the tests with coverage"
 run = [
   'uv run pytest --cov=src --cov-report=xml',
   'uv run coverage-badge -o docs/coverage.svg -f',
@@ -22,10 +29,13 @@ run = [
 ]
 
 [tasks.sec]
+description = "Run security checks"
 run = ['uv run bandit -r src']
 
 [tasks.cov-html]
+description = "Run the tests with coverage and generate HTML report"
 run = 'uv run pytest --cov=src --cov-report=html'
 
 [tasks.pyright]
+description = "Run pyright"
 run = 'uv run pyright'
