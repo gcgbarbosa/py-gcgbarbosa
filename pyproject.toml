@@ -8,7 +8,7 @@ dependencies = ["loguru>=0.7.3"]
 
 [dependency-groups]
 dev = [
-  "pre-commit>=4.2.0",
+  "pre-commit>=4.6.0",
   "pyright>=1.1.398",
   "pytest-cov>=6.1.1",
   "pytest>=8.3.5",
