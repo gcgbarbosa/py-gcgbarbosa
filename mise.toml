@@ -1,20 +1,19 @@
 [tools]
 python = "3.12"
+lefthook = "latest"
+"npm:@commitlint/cli" = "latest"
+"npm:@commitlint/config-conventional" = "latest"
+"pipx:yamllint" = "latest"
 
 [env]
 _.python.venv = { path = ".venv", create = true } # create the venv if it doesn't exist
-PYTHONPATH = "."
 
 [hooks]
-enter = "echo 'Welcome to the template project'"
+enter = "echo 'Welcome to py-gcgbarbosa'"
 
 [tasks.setup]
 description = "Initial repository setup (virtualenv, dependencies, hooks)"
-run = ["uv sync", "uv run pre-commit install"]
-
-[tasks.app]
-description = "Run the application"
-run = 'uv run python src/app.py'
+run = ["uv sync", "lefthook install"]
 
 [tasks.test]
 description = "Run the tests"
@@ -23,7 +22,7 @@ run = 'uv run pytest'
 [tasks.cov]
 description = "Run the tests with coverage"
 run = [
-  'uv run pytest --cov=src --cov-report=xml',
+  'uv run pytest --cov=pygcgb --cov-report=xml',
   'uv run coverage-badge -o docs/coverage.svg -f',
   'uv run interrogate --generate-badge docs/interrogate.svg',
 ]
@@ -34,7 +33,7 @@ run = ['uv run bandit -r src']
 
 [tasks.cov-html]
 description = "Run the tests with coverage and generate HTML report"
-run = 'uv run pytest --cov=src --cov-report=html'
+run = 'uv run pytest --cov=pygcgb --cov-report=html'
 
 [tasks.pyright]
 description = "Run pyright"

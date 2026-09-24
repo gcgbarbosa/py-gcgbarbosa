@@ -1,7 +1,7 @@
 """Entrypoint"""
 
 
-def main():
+def app():
     """
     Main function that prints a greeting message and returns the sum of 1 and 1.
 
@@ -13,6 +13,14 @@ def main():
     """
     print("Hello from template!")
     return 1 + 1
+
+
+def main() -> None:
+    """Console script entry point.
+
+    Discards the value returned by `app`, so the process exits with status 0.
+    """
+    app()
 
 
 if __name__ == "__main__":

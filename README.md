@@ -9,14 +9,31 @@
 
 this is where we start 🐍
 
-## getting started
+py-gcgbarbosa is a starting point for Python projects.
 
-Install [mise](https://mise.jdx.dev/lang/python.html) and [uv](https://github.com/astral-sh/uv).
+## Requirements
 
-Then:
+You need Python 3.12 or later,
+[mise](https://mise.jdx.dev/lang/python.html),
+and [uv](https://github.com/astral-sh/uv).
+
+## Getting started
+
+Run these commands in the project directory:
 
 ```bash
+# trust the project
 mise trust
-uv sync
-pre-commit install
+# install the dependencies
+mise install
+# set up the environment
+mise setup
+```
+
+## Usage
+
+Run the application with the `pygcgb` command:
+
+```bash
+uv run pygcgb
 ```

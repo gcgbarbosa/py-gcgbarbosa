@@ -1,57 +1,74 @@
 [project]
-name = "template"
-version = "0.0.1"
+name = "py-gcgbarbosa"
+version = "0.0.2"
 description = "Starting point for Python projects"
 readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.12"
-dependencies = ["loguru>=0.7.3"]
+keywords = ["python", "template", "starter"]
+authors = [{ name = "George C. G. Barbosa", email = "gcgbarbosa@gmail.com" }]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/gcgbarbosa/py-gcgbarbosa"
+Repository = "https://github.com/gcgbarbosa/py-gcgbarbosa"
+Issues = "https://github.com/gcgbarbosa/py-gcgbarbosa/issues"
+Changelog = "https://github.com/gcgbarbosa/py-gcgbarbosa/blob/main/CHANGELOG.md"
 
 [dependency-groups]
 dev = [
-  "pre-commit>=4.6.0",
-  "pyright>=1.1.398",
-  "pytest-cov>=6.1.1",
-  "pytest>=8.3.5",
-  "ruff>=0.11.2",
+  "bandit>=1.8.0",
   "coverage-badge>=1.1.2",
-  "interrogate[png]>=1.7.0",
   "docformatter>=1.7.5",
-  "bandit>=1.8.3",
+  "interrogate[png]>=1.7.0",
+  "pyright>=1.1.398",
+  "pytest>=8.4.2",
+  "pytest-cov>=6.1.1",
+  "ruff>=0.16.4",
+  # coverage-badge 1.1.2 imports pkg_resources, which setuptools 82 removed.
+  "setuptools<82",
+  "ty>=0.0.74",
 ]
 
 [tool.pyright]
-include = ["src"]
+include = ["src", "tests"]
 venvPath = "."
 venv = ".venv"
 
 [tool.ruff]
-exclude = [".venv", "docs"]
+extend-exclude = ["docs"]
 line-length = 120
 indent-width = 4
 target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "SIM", "RUF"]
 
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = false
-line-ending = "auto"
-
-[tool.black]
-line-length = 120
-target-version = ["py312"]
-skip-string-normalization = false
-skip-magic-trailing-comma = false
+line-ending = "lf"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
 testpaths = ["tests"]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.coverage.run]
+source = ["pygcgb"]
 
-[tool.setuptools.package-data]
-"src" = ["py.typed"]
+[tool.coverage.report]
+show_missing = true
 
 [tool.interrogate]
 ignore-init-method = true
@@ -69,3 +86,13 @@ quiet = false
 whitelist-regex = []
 ignore-regex = []
 color = true
+
+[project.scripts]
+pygcgb = "pygcgb.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pygcgb"]

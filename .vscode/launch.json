@@ -5,7 +5,7 @@
       "name": "Debug main.py",
       "type": "python",
       "request": "launch",
-      "module": "src.app",
+      "module": "pygcgb.main",
       "cwd": "${workspaceFolder}"
     }
   ]
